@@ -55,3 +55,81 @@ print("Elemento na QUARTA posição:", valores[3])
 print("Elemento na PRIMEIRA posição:", valores[0])
 print("Elemento na ÚLTIMA posição:", valores[-1])
 print("Elemento na PENÚLTIMA posição:", valores[-2])
+
+print("-"*40)
+
+# 5) SUBSTITUINDO VALORES EXISTENTES
+
+print("ANTES: ", legumes)
+
+# Substituindo o valor da posição 3
+
+# Substituindo o valor da posição 3
+legumes[3] = "vagem"
+# Substituindo o valor da posição 0
+legumes[0] = "mandioca"
+# Substituindo o valor da última posição
+legumes[-1] = "milho"
+
+print("DEPOIS: ", legumes)
+
+print("-"*40)
+
+# 6) DETERMINANDO A QUANTIDADE DE ELEMENTOS NA LISTA: len()
+print("Número de elemntos ns lista de valores ", len(valores))
+print("Número de elemntos ns lista de valores ", len(legumes))
+
+print("-"*40)
+ 
+#7) REMOVENDO O ULTIMO ELEMENTO DE UMA LISTA: pop()
+print("ANTES ", valores)
+removido = valores.pop()
+print("Valo removido: ", removido)
+print("DEPOIS:", valores)
+
+print("-"*40)
+
+#8 REMOVENDO UM ELEMNTO POR SUA POSIÇÃO: pop () com parâmetro
+removido = valores.pop(3)
+print("Valor removido da posição3: ", removido )
+print(valores)
+removido = valores.pop(0)
+print("Valor removido da primeira posição: ", removido)
+print(valores)
+
+print("-"*40)
+
+# 9) REMOVENDO UM ELEMENTO PELO SEU VALOR: remove()
+print("ANTES: ", legumes)
+legumes.remove("abrobrinha")
+print(" APÓS REMOÇÃO DE ABROBRINHA: ", legumes)
+
+print("-"*40)
+
+# Acrescwntando alguns lagumes para aumentar a lista
+legumes.append("beterraba")
+legumes.append("abrobrinha")
+legumes.append("batata doce")
+legumes.append("mandioquinha")
+legumes.append("cará")
+legumes.append("nabo")
+
+#10) FATIANDO UMA LISTA
+# Fatiar significa copiar uma parte da lista (um sulista) oara uma nova lista
+#
+
+print(legumes)
+
+# Criar uma sublista que contém os elemtnos da posição 2 até a posição 7
+# (posição 8 NÂO entra)
+sublista2_7 = legumes [2:8]
+print("Sublista de 2 a 7: ", sublista2_7)
+
+# Cria uma sublista que contém os elemtnos do início até a posição 5
+# (posição 6 NÃO entra)
+sublista0_5 = legumes[:6]
+print("Sublista de 0 a 5: ", sublista0_5)
+
+# Cria uma sublista que contém os elemtnos da posição 8
+sublista8_fim = legumes[8:]
+print("Sublista de 8 até o fim: ", sublista8_fim)
