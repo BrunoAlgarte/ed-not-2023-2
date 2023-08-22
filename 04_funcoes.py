@@ -27,8 +27,4 @@ print("-" * 40)
 # mas tendo acesso também posição dos elementos.
 # Para isso, usamos a estrutura for .. in range() com três parâmetros e len()
 for i in range(len(frutas) -1, -1, -1):
-    print(f"A fruta {frutas[i]} está na posição {i}.")
-
-
-
-
+    print("A fruta {frutas[i]} está na posição ")
