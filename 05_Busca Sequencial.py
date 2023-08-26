@@ -10,7 +10,8 @@ def busca_sequencial(lista, val):
    # (precisamos ter acesso ás posições dos elementos)
     for pos in range(len(lista)):
        # Encontrou val: retorna a posição onde foi encontrado
-        if val == lista[pos]: return pos
+        if val == lista[pos]: 
+           return pos
    # <--CUIDADO COM A INDENTAÇÂO AQUI
    # Percorreu toda a lista e não encontrou val: retorna -1
         return -1
@@ -29,3 +30,40 @@ print(f"Elemento 30 é encontrado na posição {pos30}.")
 print(f"Elemento -3 é encontrado na posição {pos_menos3}.")
 print(f"Elemento 19 é encontrado na posição {pos19}.")
 
+print("-" * 40)
+
+# FAZENDO A BUSCA EM UM ARQUIVO COM 1M+ NOMES
+
+# Importando a lista de nomes
+import sys
+sys.dont_write_bytecode = True #Impede a criação do cache
+from data.nomes import nomes
+from time import time
+
+# Buscando o nome EDSON PEREIRA
+hora_ini = time()
+pos1 = busca_sequencial(nomes, "EDSON PEREIRA")
+print(f"EDSON PERREIRA encontrada na posição {pos1}")
+hora_fim = time()
+print(f"Tempo Gasto: {(hora_fim - hora_ini) * 1000}ms\n")
+
+# Buscando o nome MARIA FERREIRA
+hora_ini = time()
+pos2 = busca_sequencial(nomes, "MARIA FERREIRA")
+hora_fim = time()
+print(f"MARIA FERREIRA encontrada na posição {pos2}")
+print(f"Tempo Gasto: {(hora_fim - hora_ini) * 1000}ms\n")
+
+# Buscando o nome VALDIR SILVA
+hora_ini = time()
+pos3 = busca_sequencial(nomes, "VALDIR SILVA")
+hora_fim = time()
+print(f"VALDIR SILVA encontrada na posição {pos3}")
+print(f"Tempo Gasto: {(hora_fim - hora_ini) * 1000}ms\n")
+
+# Buscando o nome da GILCICLEIDE GARCIA
+hora_ini = time()
+pos4 = busca_sequencial(nomes, "GILCICLEIDE GARCIA")
+hora_fim = time()
+print(f"GILCICLEIDE GARCIA encontrada na posição {pos4}")
+print(f"Tempo Gasto: {(hora_fim - hora_ini) * 1000}ms\n")
