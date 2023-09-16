@@ -75,4 +75,3 @@ print(F"Comparações: {comps}, trocas: {trocas}, passadas: {passd}")
 # hora_fim = time()
 # print(nomes100000) # Lista após ordenação
 # print(f'Tempo gasto: {(hora_fim - hora_ini) * 1000}ms\n')
-
