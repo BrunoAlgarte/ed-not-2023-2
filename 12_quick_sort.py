@@ -1,59 +1,123 @@
-def quick sort(lista, ini = 0, fim = None):
-"""
-   ALGORITMO DE ORDENAÇÃO QUICK SORT
+def merge_sort(lista):
 
-   Escolhe um dos elementos da lista para ser o pivô (na nossa
-   implementação, será o útimo elemnto) e, na primeira passada,
-   divide a lista, a partir da posição final do pivô,
-   em uma sublista á esquerda, contendo apenas valores menores
-   que o pivô, e outra sublista á direita, que contém apenas
-   valores maiores que o pivô.
-   Em seguida, recursivamente, repete o processo em cada uma das
-   sublistas, até que toda a lista esteja ordenada.
-"""
+    """
 
-# Quando não soubermos o valor da vatiável "fim", atribuímos a
-# ela o valor da última posição da lista
-if fim is None: fim = len(lista) -1
+       ALGORITIMO DE ORIENTAÇÃO MERGE SORT
 
-# Para que o algoritmo trabalhe, é necessário que a faixa delimitada
-# pelas variáveis "ini" e "fim" tenha, pelo menos, dois elementos.
-# Caso contr´rio, saímos da função sem fazer nada
-if fim <= ini: return 
+ 
 
-# Inicialização dos variáveis
-pivot = fim
-div = ini - 1
+       No processo de ordenação, esse algoritmo "desmonta"
 
-# Percorre a lista da posição "ini" até a posição "fim" - 1
-for pos in range(ini, fim):
-    # Seo elemento da posição "pos" for MENOR que o elemento da 
-    # posição "pivot", executa algumas açoes
-    if lista[pos] < lista[pivot]:
-        div += 1 # Chega a "div" uma poisção paa a frente
+       a lista original, contendo N elementosm atê obter
 
-        # Efetua a troca entre os elementos das posições "pos" e "div",
-        # desde que essas variáveis tenham valor distindo entre si
-        if pos != div and lista[pos] < lista[div:]:
-            lista[pos], lista[div] = lista[div], lista[pos]
+       N listas com apenas um elemento cada uma. Em seguida
 
-#Depois que o "Pos"  chega em sua posição final, "div" deve ser
-# incrementando uma última vez
-div += 1
+       usando a técnica de mesclagem (merging), "remonta a lista
 
-# Caso os valores da posições "pivot" e "div" sejam dierente entre
-# si, efetua a troca mútua dos elementos nessas posições, caso p
-# primeiro seja menor que o segundo 
-if pivot !=div and lista[pivot] < lista[div];
-    lista[pivot], lista[div] = lista[div], lista[pivot]
+       desta vez com os elementos já em ordem".
 
-# NESTE PONTO, O ELEMENTO DA POSIÇÃO "div" ESTÁ EM SEU LOCAL CORRETO
+    """
 
-# Chamamos recursivamente a função para ordenar a sublista á esquerda
-# da posição "div"
-quick_sort(lista, ini, div -1)
+    # PARTE 1: DIVISÃO DA LISTA EM LISTAS MENORES
 
-# A mesma coisa, só que para sublista á direita de "div"
-quick_sort(lsita, div +1, fim)
+ 
 
-#####################################################################
+    # Para que possa haver divisão da lista, esta deve ter
+
+    # mais de um elemento
+
+    if len(lista) > 1:
+
+ 
+
+        # Encontra a posição do meio da lista, para fazer a divisão
+
+        # em duas metades
+
+        meio = len(lista) // 2
+
+ 
+
+        # Tira uma cópia da primeira metade da lista
+
+        sublista_esq = lista[:meio]
+
+        # Tira uma cópia da segunda metade da lista
+
+        sublista_dir = lista [meio:]
+
+ 
+
+        # Chamamos recursivamente a própria função
+
+        # continue repartindo cada sublista em duas partes menores
+
+        sublista_esq = merge_sort(sublista_esq)
+
+        sublista_dir = merge_sort(sublista_dir)
+
+ 
+
+        # PARTE 2: REMONTAGEM DA LISTA, ORDENAMENTE
+
+ 
+
+        pos_esq = pos_dir = 0
+
+        ordenada = [] # lista vazia
+
+ 
+
+        # Compara os elementos das sublistas entre si e insere
+
+        # na lista ordenada  a menor dentre dois elementos
+
+        while pos_esq < len(sublista_esq) and pos_dir < len(sublista_dir):
+
+           
+
+            # o menor elementa está na sublista da esquerda
+
+            if sublista_esq[pos_esq] < sublista_dir[pos_dir]:
+
+                # "Desce" o elemento da esquerda para a lista ordenada
+
+                ordenada.append(sublista_esq[pos_esq])
+
+                pos_esq += 1 # Incrementa a posição da esquerda
+
+               
+
+            # O menor elementa está na sublista da direita
+
+            else:
+
+                # "Desce" o elemento da direita para a lista ordenada
+
+                ordenada.append(sublista_dir[sublista_dir])
+
+                pos_dir += 1 # INcrementa a posição da direita
+
+ 
+
+         # Verificação da sobra
+
+         sobra = []
+
+       
+
+        # Sobra á esquerda
+
+        if(pos_esq < pos_dir): sobra = sublista_esq[pos_esq:]
+
+        # Sobra á direita
+
+        else: sobra = sublista_dir[pos_dir:]
+
+ 
+
+        # O Resultado final é a junção (concatenação) da lista
+
+        # ordenada com a sombra
+
+        return ordenada + sobra
